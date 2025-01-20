@@ -9,10 +9,6 @@ plugins {
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 
-java{
-	sourceCompatibility = JavaVersion.VERSION_11
-	targetCompatibility = JavaVersion.VERSION_11
-}
 docker {
     springBootApplication {
         baseImage = 'openjdk:17-jdk-slim'
