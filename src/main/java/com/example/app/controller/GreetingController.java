@@ -14,7 +14,7 @@ public class GreetingController {
     @GetMapping("/")
     public String greeting(Model model) {
         model.addAttribute("name", "Spring Boot");
-        System.out.println("Greeting!!!!!!");
+        System.out.println("Greeting!!!!!!!");
         return "index";
     }
 
