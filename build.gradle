@@ -47,3 +47,17 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+task podmanBuildImage(type: Exec) {
+    group = 'Build'
+    description = 'Builds the Docker image using Podman'
+
+    commandLine 'podman', 'build', '-t', 'cyh0214/app-spring-boot:latest', '-f', 'Dockerfile', '.'
+}
+
+task podmanPushImage(type: Exec) {
+    group = 'Build'
+    description = 'Pushes the image to the registry using Podman'
+
+    commandLine 'podman', 'push', 'cyh0214/app-spring-boot:latest'
+}
