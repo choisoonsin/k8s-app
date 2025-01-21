@@ -23,7 +23,7 @@ class AppApplicationTests {
 	void contextLoads() throws Exception {
 		mock.perform(get("/"))
 			.andExpect(status().isOk())
-			.andExpect(view().name("index"))
+			.andExpect(view().name("index1"))
 			.andExpect(model().attribute("name", "Spring Boot"))
 			.andExpect(content().string(containsString("Spring Boot")));
 	}
