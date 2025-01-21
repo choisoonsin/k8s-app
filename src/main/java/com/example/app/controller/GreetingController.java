@@ -13,8 +13,7 @@ public class GreetingController {
 
     @GetMapping("/")
     public String greeting(Model model) {
-        model.addAttribute("name", "Spring Boot");
-        System.out.println("Hello k8s!!");
+        model.addAttribute("name", "k8s World!!!");
         return "index";
     }
 
