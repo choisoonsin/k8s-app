@@ -8,6 +8,10 @@ COPY build/resources resources/
 
 COPY build/classes classes/
 
-ENTRYPOINT ["java", "-Dspring.profiles.active=prod", "-Xmx2048m", "-cp", "/app/resources:/app/classes:/app/libs/*", "com.example.app.AppApplication"]
+COPY build/libs/*.war app.war
+
+RUN ls -la
+
+ENTRYPOINT ["java", "-Dspring.profiles.active=prod", "-Xmx2048m", "-jar", "app.war"]
 
 EXPOSE 8080
