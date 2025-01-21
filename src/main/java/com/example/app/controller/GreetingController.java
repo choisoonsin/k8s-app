@@ -1,8 +1,12 @@
 package com.example.app.controller;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import org.springframework.format.datetime.standard.DateTimeFormatterFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +17,15 @@ public class GreetingController {
 
     @GetMapping("/")
     public String greeting(Model model) {
-        model.addAttribute("name", "k8s World!!! Updated: 2024-01-21");
+        String hostname = System.getenv("HOSTNAME");
+        if(hostname == null) {
+            hostname = "default";
+        }
+
+        LocalDateTime now = LocalDateTime.now();
+        String nowStr = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+
+        model.addAttribute("name", hostname + " executed on k8s Updated: " + nowStr);
         return "index";
     }
 
