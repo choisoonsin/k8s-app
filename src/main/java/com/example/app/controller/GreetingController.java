@@ -13,7 +13,7 @@ public class GreetingController {
 
     @GetMapping("/")
     public String greeting(Model model) {
-        model.addAttribute("name", "k8s World!!!");
+        model.addAttribute("name", "k8s World!!! Updated: 2024-01-21");
         return "index";
     }
 
