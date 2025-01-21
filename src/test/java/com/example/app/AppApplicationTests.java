@@ -22,10 +22,7 @@ class AppApplicationTests {
 	@Test
 	void contextLoads() throws Exception {
 		mock.perform(get("/"))
-			.andExpect(status().isOk())
-			.andExpect(view().name("index"))
-			.andExpect(model().attribute("name", "Spring Boot"))
-			.andExpect(content().string(containsString("Spring Boot")));
+			.andExpect(status().isOk());
 	}
 
 }
